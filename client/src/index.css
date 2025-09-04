@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors - India-inspired palette */
+  --primary: 24 71% 53%;        /* Saffron orange #e17018 */
+  --primary-foreground: 0 0% 98%;
+  --primary-glow: 27 84% 60%;   /* Bright saffron #f4841f */
+  
+  --secondary: 142 43% 23%;     /* Forest green #237a3c */
+  --secondary-foreground: 0 0% 98%;
+  
+  --accent: 202 71% 52%;        /* Indian blue #2563eb */
+  --accent-foreground: 0 0% 98%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 13% 65%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 224 71% 4%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 71% 4%;
+  
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 24 71% 53%;
+  
+  --background: 0 0% 100%;
+  --foreground: 224 71% 4%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  
+  /* Premium gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--secondary) / 0.8));
+  --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted) / 0.5));
+  
+  /* Enhanced shadows */
+  --shadow-elegant: 0 8px 32px -8px hsl(var(--primary) / 0.2);
+  --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+  --shadow-soft: 0 4px 16px -4px hsl(220 10% 20% / 0.1);
+  
+  /* Smooth transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  --primary: 27 84% 60%;        /* Brighter saffron for dark mode */
+  --primary-foreground: 220 14% 11%;
+  --primary-glow: 24 71% 53%;
+  
+  --secondary: 142 52% 32%;     /* Brighter green for dark mode */
+  --secondary-foreground: 0 0% 98%;
+  
+  --accent: 202 81% 62%;        /* Brighter blue for dark mode */
+  --accent-foreground: 220 14% 11%;
+  
+  --muted: 217 32% 17%;
+  --muted-foreground: 215 20% 65%;
+  
+  --card: 222 84% 5%;
+  --card-foreground: 213 31% 91%;
+  
+  --popover: 222 84% 5%;
+  --popover-foreground: 213 31% 91%;
+  
+  --border: 217 32% 17%;
+  --input: 217 32% 17%;
+  --ring: 27 84% 60%;
+  
+  --background: 220 14% 11%;
+  --foreground: 213 31% 91%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  
+  /* Dark mode gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--secondary) / 0.7));
+  --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted) / 0.3));
+  
+  /* Dark mode shadows */
+  --shadow-elegant: 0 8px 32px -8px hsl(var(--primary) / 0.4);
+  --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.4);
+  --shadow-soft: 0 4px 16px -4px hsl(0 0% 0% / 0.3);
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+/* Smooth animations */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes bounceIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.8) translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1) translateY(0); 
+  }
+}
+
+/* Enhanced button hover effects */
+.btn-glow:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+/* Card hover effects */
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elegant);
+}
